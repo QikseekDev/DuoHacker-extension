@@ -1,0 +1,81 @@
+{
+  "manifest_version": 3,
+
+  "name": "Duolingo DuoHacker v2",
+
+  "version": "1.0",
+
+  "description": "Duolingo DuoHacker — Browser Extension
+
+Adds the DuoHacker panel to Duolingo web with quick access to XP tools, streak helpers, quests, lesson tools, and more.
+
+FEATURES
+
+• Floating DuoHacker panel directly on Duolingo
+• XP, streak, quest, and lesson helper tools
+• Simple enable/disable toggle from the extension popup
+• Works on both duolingo.com and duolingo.cn
+• Lightweight userscript-based loader
+
+HOW TO USE
+Install the extension
+Open https://www.duolingo.com/ and sign in
+Wait for the page to finish loading
+The DuoHacker panel should appear automatically
+PERMISSIONS
+
+The extension only runs on official Duolingo pages and connects to the sites needed to load DuoHacker resources and assets.",
+
+  "icons": {
+    "128": "icon.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.duolingo.com/*",
+        "https://*.duolingo.cn/*"
+      ],
+
+      "js": [
+        "content.js"
+      ],
+
+      "run_at": "document_end"
+    }
+  ],
+
+  "host_permissions": [
+    "https://*.duolingo.com/*",
+    "https://*.duolingo.cn/*",
+
+    "https://raw.githubusercontent.com/*",
+
+    "https://avatars.githubusercontent.com/*",
+
+    "https://fonts.googleapis.com/*",
+
+    "https://greasyfork.org/*",
+
+    "https://api.twisk.fun/*",
+
+    "https://stories.duolingo.com/*",
+
+    "https://goals-api.duolingo.com/*",
+
+    "https://duolingo-leaderboards-prod.duolingo.com/*"
+  ],
+
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "inject.js"
+      ],
+
+      "matches": [
+        "https://*.duolingo.com/*",
+        "https://*.duolingo.cn/*"
+      ]
+    }
+  ]
+}
